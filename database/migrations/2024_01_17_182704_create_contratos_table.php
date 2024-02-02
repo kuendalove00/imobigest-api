@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('contratos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("id_imovel");
+            $table->foreignId("id_imovel")->constrained("imoveis");
             $table->string("estado");
             $table->date("data_inicio");
             $table->date("data_termino")->nullable();

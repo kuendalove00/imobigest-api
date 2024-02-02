@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('notificacoes', function (Blueprint $table) {
             $table->id();  
-            $table->foreignId("id_usuario");  
-            $table->foreignId("id_imovel");  
+            $table->foreignId("id_usuario")->constrained("usuarios");  
+            $table->foreignId("id_imovel")->constrained("imoveis");  
             $table->longText("mensagem");  
             $table->dateTime("data");  
             $table->timestamp("criado_aos")->useCurrent();
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('notificacaos');
+        Schema::dropIfExists('notificacoes');
     }
 };

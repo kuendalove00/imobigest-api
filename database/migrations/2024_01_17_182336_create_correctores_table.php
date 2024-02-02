@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string("bi", 25);
             $table->date("data_nascimento");
             $table->enum("genero",["M","F"]);
-            $table->foreignId("id_usuario");
+            $table->string("telefone");
+            $table->foreignId("id_usuario")->constrained("usuarios");
             $table->timestamp("criado_aos")->useCurrent();
             $table->timestamp("atualizado_aos")->useCurrent()->useCurrentOnUpdate();
             
@@ -30,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('correctors');
+        Schema::dropIfExists('correctores');
     }
 };

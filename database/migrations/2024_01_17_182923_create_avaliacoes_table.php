@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('avaliacoes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("id_imovel");
-            $table->foreignId("id_cliente");
+            $table->foreignId("id_imovel")->constrained("imoveis");
+            $table->foreignId("id_cliente")->constrained("clientes");
             $table->integer("avaliacao");
             $table->longText("comentario");
             $table->date("data");
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('avaliacaos');
+        Schema::dropIfExists('avaliacoes');
     }
 };

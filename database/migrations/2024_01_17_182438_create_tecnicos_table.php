@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mecanicos', function (Blueprint $table) {
+        Schema::create('tecnicos', function (Blueprint $table) {
             $table->id();
             $table->string("nome",100);
             $table->string("sobrenome",100);
             $table->string("bi", 25);
             $table->date("data_nascimento");
             $table->enum("genero",["M","F"]);
-            $table->foreignId("id_usuario");
+            $table->foreignId("id_usuario")->constrained("usuarios");
             $table->timestamp("criado_aos")->useCurrent();
             $table->timestamp("atualizado_aos")->useCurrent()->useCurrentOnUpdate();
         });
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mecanicos');
+        Schema::dropIfExists('tecnicos');
     }
 };

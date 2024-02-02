@@ -15,10 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string("nome");
             $table->enum("tipo",["R", "C"]);
+            $table->enum("transacao", ["A","V"]);
             $table->longText("endereco");
             $table->integer("numero_quartos");
             $table->enum("estado",["D","A","V","N"]);
             $table->double("preco");
+            $table->foreignId("id_corrector")->constrained("correctores");
             $table->timestamp("criado_aos")->useCurrent();
             $table->timestamp("atualizado_aos")->useCurrent()->useCurrentOnUpdate();
         });

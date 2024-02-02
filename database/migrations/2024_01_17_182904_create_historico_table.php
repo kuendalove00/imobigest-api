@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('historico', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("id_manutencao");
+            $table->foreignId("id_manutencao")->constrained("manutencoes");
             $table->date("data");
             $table->timestamp("criado_aos")->useCurrent();
             $table->timestamp("atualizado_aos")->useCurrent()->useCurrentOnUpdate();
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('historicos');
+        Schema::dropIfExists('historico');
     }
 };

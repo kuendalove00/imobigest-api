@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('vendas', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("id_cliente");
-            $table->foreignId("id_corrector");
+            $table->foreignId("id_cliente")->constrained("clientes");
+            $table->foreignId("id_corrector")->constrained("correctores");
             $table->double("pagamento");
             $table->enum("metodo",["T","D"])->nullable();
             $table->foreignId("comprovativo")->nullable();

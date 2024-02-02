@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('manutencoes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("id_corrector");
-            $table->foreignId("id_mecanico")->nullable();
+            $table->foreignId("id_corrector")->constrained("correctores");
+            $table->foreignId("id_tecnico")->constrained("tecnicos")->nullable();
             $table->longText("descricao");
             $table->enum("estado",["P","EA","C"]);
             $table->date("data_abertura");
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('manutencaos');
+        Schema::dropIfExists('manutencoes');
     }
 };
