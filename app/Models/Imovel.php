@@ -23,8 +23,8 @@ class Imovel extends Model
         'preco',
         'id_corrector'
     ];
-    
-    public function corrector(): BelongsTo 
+
+    public function corrector(): BelongsTo
     {
         return $this->belongsTo(Corrector::class, 'id_corrector');
     }
