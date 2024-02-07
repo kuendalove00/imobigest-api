@@ -27,6 +27,7 @@ class StoreMecanicoRequest extends FormRequest
             'bi' => 'required',
             'data_nascimento' => 'required',
             'genero' => 'required',
+            'telefone' => 'required',
             'id_usuario' => 'required'
         ];
     }

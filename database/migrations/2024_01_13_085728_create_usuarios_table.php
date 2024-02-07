@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string("email");
             $table->string("password");
             $table->enum("papel",["1","2","3","4"]);
-            $table->rememberToken();
             $table->timestamp("criado_aos")->useCurrent();
             $table->timestamp("atualizado_aos")->useCurrent()->useCurrentOnUpdate();
             

@@ -27,7 +27,9 @@ class StoreImovelRequest extends FormRequest
             'endereco' => 'required',
             'numero_quartos' => 'required',
             'estado' => 'required',
-            'preco' => 'required'
+            'preco' => 'required',
+            'id_corrector' => 'required',
+            
         ];
     }
 }

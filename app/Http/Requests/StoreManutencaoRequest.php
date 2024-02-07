@@ -23,7 +23,7 @@ class StoreManutencaoRequest extends FormRequest
     {
         return [
             'id_corrector' => 'required',
-            'id_mecanico' => 'required',
+            'id_tecnico' => 'required',
             'descricao' => 'required',
             'estado' => 'required',
             'data_abertura' => 'required',

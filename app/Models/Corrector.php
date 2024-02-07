@@ -19,6 +19,7 @@ class Corrector extends Model
         'bi',
         'data_nascimento',
         'genero',
+        'telefone',
         'id_usuario'
     ];
     
@@ -36,6 +37,11 @@ class Corrector extends Model
     public function usuario(): BelongsTo 
     {
         return $this->belongsTo(Usuario::class,'id_usuario');
+    }
+
+    public function imoveis(): HasMany
+    {
+        return $this->hasMany(Imovel::class, 'id_imovel');
     }
 
     const CREATED_AT = 'criado_aos';

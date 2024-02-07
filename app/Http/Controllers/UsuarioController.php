@@ -24,13 +24,13 @@ class UsuarioController extends Controller
     {
         $validated = $request->validated();
 
-        if($validated->fails()){
+        /*if($validated->fails()){
             return response()->json([
                 'status' => false,
                 'messagem' => 'Erro de validação',
                 'erros' => $validated->errors()
             ], 401);
-        }
+        }*/
 
         $usuario = Usuario::create($validated);
         return response()->json([

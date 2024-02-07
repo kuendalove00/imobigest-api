@@ -14,7 +14,7 @@ class Manutencao extends Model
 
     protected $fillable = [
         'id_corrector',
-        'id_mecanico',
+        'id_tecnico',
         'descricao',
         'estado',
         'data_abertura',

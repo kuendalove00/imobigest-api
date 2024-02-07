@@ -17,6 +17,7 @@ class Cliente extends Model
         'sobrenome',
         'data_nascimento',
         'genero',
+        'telefone',
         'id_usuario'
     ];
 
