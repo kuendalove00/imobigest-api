@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::table('imoveis', function (Blueprint $table) {
             $table->string("slug");
             $table->text("desc")->nullable();
-            $table->string("localizacao")->nullable();
         });
     }
 
