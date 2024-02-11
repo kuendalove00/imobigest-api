@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Mecanico extends Model
+class Tecnico extends Model
 {
     use HasFactory;
 
-    protected $table = 'mecanicos';
+    protected $table = 'tecnicos';
 
     protected $fillable = [
         'nome',
@@ -24,7 +24,7 @@ class Mecanico extends Model
 
     public function manutencoes(): HasMany
     {
-        return $this->hasMany(Manutencao::class, 'id_mecanico');
+        return $this->hasMany(Manutencao::class, 'id_tecnico');
     }
     
     public function usuario(): BelongsTo

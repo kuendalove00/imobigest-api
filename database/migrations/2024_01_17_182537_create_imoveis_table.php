@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('imoveis', function (Blueprint $table) {
             $table->id();
             $table->string("nome");
+            $table->string("foto");
             $table->enum("tipo",["R", "C"]);
             $table->enum("transacao", ["A","V"]);
             $table->longText("endereco");

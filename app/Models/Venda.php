@@ -12,7 +12,7 @@ class Venda extends Model
 {
     use HasFactory;
 
-    protected $table = 'vendas';
+    protected $table = 'pagamentos';
 
     protected $fillable = [
         'id_cliente',

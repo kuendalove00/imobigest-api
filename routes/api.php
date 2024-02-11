@@ -8,10 +8,10 @@ use App\Http\Controllers\HistoricoController;
 use App\Http\Controllers\InteresseController;
 use App\Http\Controllers\ImovelController;
 use App\Http\Controllers\ManutencaoController;
-use App\Http\Controllers\MecanicoController;
 use App\Http\Controllers\NotificacaoController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VendaController;
+use App\Http\Controllers\TecnicoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -47,7 +47,7 @@ Route::group(['middleware' => 'api'], function () {
     Route::resource('/imovel', ImovelController::class);
     Route::resource('/interesse', InteresseController::class);
     Route::resource('/manutencao', ManutencaoController::class);
-    Route::resource('/mecanico', MecanicoController::class);
+    Route::resource('/tecnico', TecnicoController::class);
     Route::resource('/notificacao', NotificacaoController::class);
     Route::resource('/utilizador', UsuarioController::class);
     Route::resource('/venda', VendaController::class);
