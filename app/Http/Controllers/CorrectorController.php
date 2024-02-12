@@ -13,7 +13,7 @@ class CorrectorController extends Controller
      */
     public function index()
     {
-        $correctores = Corrector::all();
+        $correctores = Corrector::with('usuario')->get();
         return $correctores;
     }
 

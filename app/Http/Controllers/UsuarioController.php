@@ -33,9 +33,11 @@ class UsuarioController extends Controller
         }*/
 
         $usuario = Usuario::create($validated);
+        return $usuario;
         return response()->json([
             'status' => true,
             'messagem' => 'Usuario criado com sucesso',
+
             
         ], 200);
     }
