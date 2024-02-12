@@ -13,6 +13,7 @@ class Contrato extends Model
     protected $table = 'contratos';
 
     protected $fillable = [
+        'id_cleinte',
         'id_imovel',
         'estado',
         'data_inicio',
@@ -20,7 +21,7 @@ class Contrato extends Model
         'valor_contrato',
         'intervalo'
     ];
-    
+
     public function imovel(): BelongsTo
     {
         return $this->belongsTo(Imovel::class, 'id_imovel');

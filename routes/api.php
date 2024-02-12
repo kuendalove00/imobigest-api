@@ -30,7 +30,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/registo', [AuthController::class,'registo']);
+Route::post('/registo', [AuthController::class,'registar']);
 Route::post('auth/login', [AuthController::class,'login']);
 
 Route::group(['middleware'=> 'api', 'prefix'=> 'auth'], function(){
@@ -51,4 +51,10 @@ Route::group(['middleware' => 'api'], function () {
     Route::resource('/notificacao', NotificacaoController::class);
     Route::resource('/utilizador', UsuarioController::class);
     Route::resource('/venda', VendaController::class);
+});
+
+Route::group(['prefix' => 'site', 'middleware' => 'api'], function (){
+   Route::get("/imoveis", [\App\Http\Controllers\site\ImoveisController::class, 'index']);
+   Route::post("cliente", [\App\Http\Controllers\site\ClienteController::class, 'store']);
+   Route::get("imoveis/by-slug/{slug}", [\App\Http\Controllers\site\ImoveisController::class, 'bySlug']);
 });

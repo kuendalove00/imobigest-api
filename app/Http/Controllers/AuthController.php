@@ -29,7 +29,7 @@ class AuthController extends Controller
         return response()->json([
             'status' => true,
             'messagem' => 'Usuario criado com sucesso',
-            
+
         ], 200);
     }
 
@@ -37,13 +37,13 @@ class AuthController extends Controller
     {
 
         $credenciais = $request->only('email', 'password');
-        
+
         if(!$token = Auth::attempt($credenciais)){
             return response()->json([
                 'status' => false,
                 'erro' => 'Credenciais Invalidas'
             ], 401);
-        }        
+        }
 
         $usuario = Usuario::where('email', $request->email)->first();
 
@@ -51,6 +51,7 @@ class AuthController extends Controller
             'status' => true,
             'messagem' => 'Usuario criado com sucesso',
             'data'=> [
+                'usuario' => $usuario,
                 'token' => $token,
                 'token_type' => 'bearer',
                 'expires_in' => auth()->factory()->getTTL() * 60
