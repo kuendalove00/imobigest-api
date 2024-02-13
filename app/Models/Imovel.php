@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 
@@ -62,6 +63,14 @@ class Imovel extends Model
         ];
 
         return $tipo[$this->tipo];
+    }
+
+    public function clintesInteressado () : BelongsToMany {
+        return $this->belongsToMany(
+            Cliente::class,
+            'clientes',
+            'imovel_id',
+            'cliente_id');
     }
     public function corrector(): BelongsTo
     {

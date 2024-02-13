@@ -58,7 +58,11 @@ class Usuario extends Authenticatable implements JWTSubject
         return $this->hasOne(Mecanico::class,'id_usuario');
     }
 
-    
+    public function cliente () {
+        return $this->hasOne(Cliente::class, 'id_usuario');
+    }
+
+
 
     public function getJWTIdentifier()
     {

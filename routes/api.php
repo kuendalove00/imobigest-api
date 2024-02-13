@@ -53,8 +53,9 @@ Route::group(['middleware' => 'api'], function () {
     Route::resource('/venda', VendaController::class);
 });
 
-Route::group(['prefix' => 'site', 'middleware' => 'api'], function (){
+Route::group(['prefix' => 'site', 'middleware' => 'api'], function () {
    Route::get("/imoveis", [\App\Http\Controllers\site\ImoveisController::class, 'index']);
    Route::post("cliente", [\App\Http\Controllers\site\ClienteController::class, 'store']);
    Route::get("imoveis/by-slug/{slug}", [\App\Http\Controllers\site\ImoveisController::class, 'bySlug']);
+   Route::post("interesse", [\App\Http\Controllers\site\ImoveisController::class, 'interesse']);
 });
